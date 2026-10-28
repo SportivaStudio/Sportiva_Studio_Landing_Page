@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sportiva Studio | Activewear & Pilates Essentials</title>
+  
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- External CSS -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-[#FAF7F8] text-[#2C2C2C] font-['Montserrat'] antialiased selection:bg-[#E8A5B8] selection:text-white pb-12">
+
+  <!-- Top Announcement Bar -->
+  <div class="bg-[#B57288] text-white text-xs py-1.5 text-center tracking-wider font-medium">
+    <span id="txt-promo">✨ EXCLUSIVE CREATOR DISCOUNTS APPLIED AT CHECKOUT ✨</span>
+  </div>
+
+  <!-- Header / Navigation -->
+  <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-[#F5E6EA] transition-all duration-300 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="#" class="flex flex-col items-start group">
+        <span class="font-['Alex_Brush'] text-2xl sm:text-3xl text-[#B57288] leading-none group-hover:text-[#9A5B70] transition-colors">Sportiva Studio</span>
+        <span class="text-[9px] tracking-[0.2em] uppercase text-[#7A7A7A] font-semibold">Activewear & Gear</span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center space-x-8 text-xs font-medium uppercase tracking-widest text-[#555]">
+        <a href="#bestsellers" class="hover:text-[#B57288] transition-colors" id="nav-bestsellers">Bestsellers</a>
+        <a href="#catalog" class="hover:text-[#B57288] transition-colors" id="nav-catalog">Catalog</a>
+        <a href="#pinterest-hub" class="hover:text-[#B57288] transition-colors" id="nav-[#B57288]">Pinterest Hub</a>
+        <a href="#about-us-section" class="hover:text-[#B57288] transition-colors" id="nav-about">About Us</a>
+      </nav>
+
+      <!-- Right Actions: Language + Auth + Cart -->
+      <div class="flex items-center space-x-3 sm:space-x-4">
+        
+        <!-- Language Switcher -->
+        <div class="relative">
+          <select id="lang-select" onchange="changeLanguage(this.value)" class="text-xs font-semibold bg-[#FDE8ED] text-[#B57288] py-1 px-2 rounded-full cursor-pointer outline-none border border-[#F5C2D0] hover:bg-[#F9D0DC] transition-colors">
+            <option value="en">🇬🇧 EN</option>
+            <option value="fr">🇫🇷 FR</option>
+            <option value="de">🇩🇪 DE</option>
+          </select>
+        </div>
+
+        <!-- Auth Indicator / Login Button -->
+        <button id="auth-btn" onclick="openAuthModal()" class="text-xs bg-white border border-[#E8A5B8] text-[#B57288] px-3 py-1 rounded-full font-medium hover:bg-[#FDE8ED] transition-colors flex items-center gap-1.5">
+          <i class="fa-regular fa-user"></i>
+          <span id="auth-btn-text">Sign In</span>
+        </button>
+
+        <!-- Cart / Saved Items Icon -->
+        <button onclick="toggleCart()" class="relative p-2 text-[#555] hover:text-[#B57288] transition-colors" title="View Saved Items">
+          <i class="fa-solid fa-bag-shopping text-xl"></i>
+          <span id="cart-count" class="absolute top-0 right-0 bg-[#B57288] text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Banner (Compact & High Priority) -->
+  <section class="relative bg-gradient-to-r from-[#FDE8ED] via-[#FFF5F7] to-[#FDE8ED] py-8 sm:py-12 border-b border-[#F5E6EA] overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="text-center md:text-left max-w-xl">
+        <span class="inline-block px-3 py-1 bg-white text-[#B57288] rounded-full text-[10px] font-bold tracking-widest uppercase mb-3 border border-[#F5C2D0]" id="hero-tag">Curated Collection</span>
+        <h1 class="font-['Playfair_Display'] text-3xl sm:text-4xl lg:text-5xl font-normal text-[#2C2C2C] leading-tight mb-3" id="hero-title">
+          Elevate Your Daily Workout Routine
+        </h1>
+        <p class="text-xs sm:text-sm text-[#666] mb-6 leading-relaxed" id="hero-subtitle">
+          Discover premium aesthetic activewear, non-slip Pilates gear, and clean daily supplements.
+        </p>
+        <div class="flex flex-wrap gap-3 justify-center md:justify-start">
+          <a href="#bestsellers" class="bg-[#B57288] hover:bg-[#9A5B70] text-white text-xs uppercase tracking-widest px-6 py-2.5 rounded-full font-medium transition-all shadow-md hover:shadow-lg" id="hero-btn-1">
+            Shop Bestsellers
+          </a>
+          <a href="#catalog" class="bg-white hover:bg-[#FDE8ED] text-[#2C2C2C] border border-[#E8A5B8] text-xs uppercase tracking-widest px-6 py-2.5 rounded-full font-medium transition-all" id="hero-btn-2">
+            Explore Categories
+          </a>
+        </div>
+      </div>
+      <div class="relative w-full md:w-1/2 max-w-md h-48 sm:h-56 rounded-2xl overflow-hidden shadow-lg border-4 border-white">
+        <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=1000&q=80" alt="Pilates Aesthetics" class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent flex items-end p-4">
+          <span class="text-white text-xs font-medium tracking-wide">✨ 2026 Studio Essentials Collection</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bestsellers Section (Horizontal Compact Slider) -->
+  <section id="bestsellers" class="py-8 bg-white border-b border-[#F5E6EA]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between mb-4">
+        <div>
+          <h2 class="font-['Playfair_Display'] text-xl sm:text-2xl font-semibold text-[#2C2C2C]" id="sec-bestsellers-title">Our Bestsellers</h2>
+          <p class="text-xs text-[#7A7A7A]" id="sec-bestsellers-sub">Most loved items this week</p>
+        </div>
+        <div class="flex gap-2">
+          <button onclick="scrollBestsellers(-300)" class="w-8 h-8 rounded-full border border-[#E8A5B8] text-[#B57288] flex items-center justify-center hover:bg-[#FDE8ED] transition-colors">
+            <i class="fa-solid fa-chevron-left text-xs"></i>
+          </button>
+          <button onclick="scrollBestsellers(300)" class="w-8 h-8 rounded-full border border-[#E8A5B8] text-[#B57288] flex items-center justify-center hover:bg-[#FDE8ED] transition-colors">
+            <i class="fa-solid fa-chevron-right text-xs"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Horizontal Scrollable Container -->
+      <div id="bestsellers-container" class="flex gap-4 overflow-x-auto scrollbar-none scroll-smooth py-2">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Catalog Section with Category & Sub-Category Tabs -->
+  <section id="catalog" class="py-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-8">
+      <h2 class="font-['Playfair_Display'] text-2xl sm:text-3xl font-semibold text-[#2C2C2C] mb-2" id="cat-main-title">Full Product Catalog</h2>
+      <p class="text-xs text-[#7A7A7A]" id="cat-main-sub">Filter by category to find your perfect studio aesthetic</p>
+
+      <!-- Main Category Tabs -->
+      <div class="flex flex-wrap justify-center gap-2 mt-6" id="main-category-buttons">
+        <button onclick="selectMainCategory('all')" class="cat-btn active bg-[#B57288] text-white text-xs font-medium px-4 py-2 rounded-full transition-all shadow-sm" data-cat="all">All Products</button>
+        <button onclick="selectMainCategory('activewear')" class="cat-btn bg-white border border-[#E8A5B8] text-[#555] hover:bg-[#FDE8ED] text-xs font-medium px-4 py-2 rounded-full transition-all" data-cat="activewear">Activewear</button>
+        <button onclick="selectMainCategory('equipment')" class="cat-btn bg-white border border-[#E8A5B8] text-[#555] hover:bg-[#FDE8ED] text-xs font-medium px-4 py-2 rounded-full transition-all" data-cat="equipment">Equipment</button>
+        <button onclick="selectMainCategory('pilates')" class="cat-btn bg-white border border-[#E8A5B8] text-[#555] hover:bg-[#FDE8ED] text-xs font-medium px-4 py-2 rounded-full transition-all" data-cat="pilates">Pilates</button>
+        <button onclick="selectMainCategory('gym')" class="cat-btn bg-white border border-[#E8A5B8] text-[#555] hover:bg-[#FDE8ED] text-xs font-medium px-4 py-2 rounded-full transition-all" data-cat="gym">Gym</button>
+        <button onclick="selectMainCategory('supplements')" class="cat-btn bg-white border border-[#E8A5B8] text-[#555] hover:bg-[#FDE8ED] text-xs font-medium px-4 py-2 rounded-full transition-all" data-cat="supplements">Supplements</button>
+      </div>
+
+      <!-- Dynamic Sub-Category Pills (Appears when category selected) -->
+      <div id="subcategory-wrapper" class="mt-4 min-h-[40px] flex items-center justify-center">
+        <div id="subcategory-buttons" class="flex flex-wrap justify-center gap-2 text-xs">
+          <!-- Dynamically populated -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Product Grid -->
+    <div id="product-grid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+      <!-- Injected via JavaScript -->
+    </div>
+  </section>
+
+  <!-- Pinterest Creator Hub & Direct Link Redirect Info -->
+  <section id="pinterest-hub" class="py-10 bg-[#FFF5F7] border-y border-[#F5E6EA]">
+    <div class="max-w-5xl mx-auto px-4 text-center">
+      <span class="text-[#B57288] text-xs font-bold uppercase tracking-widest">Pinterest Creator Tools</span>
+      <h3 class="font-['Playfair_Display'] text-2xl font-semibold text-[#2C2C2C] mt-1 mb-3">Direct Product Pinning & Deep Links</h3>
+      <p class="text-xs text-[#666] max-w-2xl mx-auto mb-6 leading-relaxed">
+        Are you coming from one of our Pinterest Pins? Each product card contains a direct <strong>"📌 Pin"</strong> button. Pins automatically attach a direct product hash link (e.g., <code class="bg-white px-1.5 py-0.5 rounded text-[#B57288] border border-[#E8A5B8]">yoursite.com/#product-1</code>) so visitors land directly on that exact item!
+      </p>
+      <div class="inline-flex items-center gap-2 bg-white px-4 py-2 rounded-full border border-[#E8A5B8] text-xs text-[#555] shadow-sm">
+        <i class="fa-brands fa-pinterest text-red-600 text-base"></i>
+        <span>Tag direct affiliate links on Pinterest using compliant disclosures: <strong class="text-[#2C2C2C]">#affiliate #sportivastudio</strong></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Us Section (Positioned Before Footer) -->
+  <section id="about-us-section" class="py-12 bg-white border-b border-[#F5E6EA]">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <span class="font-['Alex_Brush'] text-4xl text-[#B57288] block mb-2">Sportiva Studio</span>
+      <h2 class="font-['Playfair_Display'] text-2xl font-semibold text-[#2C2C2C] mb-4" id="about-title">About Sportiva Studio Group</h2>
+      <div class="w-12 h-0.5 bg-[#E8A5B8] mx-auto mb-6"></div>
+      <p class="text-xs sm:text-sm text-[#666] leading-relaxed mb-4" id="about-p1">
+        Sportiva Studio was founded with a singular mission: to bridge aesthetic fitness culture with clean, high-performance daily essentials. We curate top-tier pink and neutral activewear, Pilates equipment, and non-toxic supplements for women who prioritize both style and substance.
+      </p>
+      <p class="text-xs sm:text-sm text-[#666] leading-relaxed" id="about-p2">
+        Through direct partnerships with leading wellness brands and independent creators, we bring exclusive discount codes and direct access to authentic products tested by real Pilates and fitness instructors worldwide.
+      </p>
+    </div>
+  </section>
+
+  <!-- Clean Footer -->
+  <footer class="bg-[#FAF7F8] py-8 border-t border-[#F5E6EA] text-center text-xs text-[#7A7A7A]">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="font-['Alex_Brush'] text-2xl text-[#B57288] mb-2">Sportiva Studio</div>
+      <p class="mb-4 text-[11px]" id="footer-copy">&copy; 2026 Sportiva Studio. All rights reserved.</p>
+      <p class="text-[10px] max-w-xl mx-auto text-[#999] leading-normal" id="footer-disc">
+        Disclosure: Some links on this site are affiliate links. If you purchase products through these links, Sportiva Studio may earn a commission at no additional cost to you.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Slide-out Cart Drawer -->
+  <div id="cart-drawer" class="fixed inset-0 z-50 overflow-hidden pointer-events-none hidden">
+    <div id="cart-overlay" onclick="toggleCart()" class="absolute inset-0 bg-black/40 backdrop-blur-sm transition-opacity opacity-0 pointer-events-auto"></div>
+    <div class="fixed inset-y-0 right-0 max-w-full flex pl-10 pointer-events-auto">
+      <div class="w-screen max-w-md bg-white shadow-xl flex flex-col">
+        
+        <!-- Cart Header -->
+        <div class="p-4 bg-[#FFF5F7] border-b border-[#F5E6EA] flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <i class="fa-solid fa-bag-shopping text-[#B57288]"></i>
+            <h3 class="font-['Playfair_Display'] text-lg font-semibold text-[#2C2C2C]" id="cart-drawer-title">Saved Items & Summary</h3>
+          </div>
+          <button onclick="toggleCart()" class="text-[#7A7A7A] hover:text-[#2C2C2C] p-1">
+            <i class="fa-solid fa-xmark text-lg"></i>
+          </button>
+        </div>
+
+        <!-- Cart Items List -->
+        <div id="cart-items-container" class="flex-1 overflow-y-auto p-4 space-y-4">
+          <!-- Dynamic Items -->
+        </div>
+
+        <!-- Cart Footer -->
+        <div class="p-4 border-t border-[#F5E6EA] bg-[#FAF7F8]">
+          <div class="flex justify-between text-xs font-semibold mb-3">
+            <span id="cart-total-label">Total Saved Items:</span>
+            <span id="cart-total-count" class="text-[#B57288]">0</span>
+          </div>
+          <p class="text-[10px] text-[#888] mb-3 leading-tight" id="cart-info-text">
+            Clicking "View Official Site" opens the brand's verified checkout in a new tab with your discount pre-applied.
+          </p>
+          <button onclick="toggleCart()" class="w-full bg-[#B57288] text-white text-xs font-medium py-2.5 rounded-full uppercase tracking-widest hover:bg-[#9A5B70] transition-colors" id="cart-close-btn">
+            Continue Shopping
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Auth Modal (Google & Email Sign In) -->
+  <div id="auth-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm hidden">
+    <div class="bg-white rounded-2xl max-w-sm w-full p-6 shadow-2xl relative border border-[#F5E6EA]">
+      <button onclick="closeAuthModal()" class="absolute top-4 right-4 text-[#888] hover:text-[#2C2C2C]">
+        <i class="fa-solid fa-xmark text-lg"></i>
+      </button>
+
+      <div class="text-center mb-6">
+        <span class="font-['Alex_Brush'] text-3xl text-[#B57288]">Sportiva Studio</span>
+        <h3 class="font-['Playfair_Display'] text-xl font-semibold text-[#2C2C2C] mt-1" id="auth-modal-title">Sign In or Sign Up</h3>
+        <p class="text-xs text-[#666] mt-1" id="auth-modal-sub">Unlock sales tracking, exclusive discount codes & saved products</p>
+      </div>
+
+      <!-- Google Sign In Button -->
+      <button onclick="handleGoogleAuth()" class="w-full border border-[#DDD] hover:bg-[#F9F9F9] text-[#444] text-xs font-medium py-2.5 px-4 rounded-full flex items-center justify-center gap-3 transition-colors mb-4">
+        <svg class="w-4 h-4" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>
+        <span>Continue with Google</span>
+      </button>
+
+      <div class="flex items-center my-4">
+        <div class="flex-1 border-t border-[#EEE]"></div>
+        <span class="px-3 text-[10px] text-[#AAA] uppercase">or email</span>
+        <div class="flex-1 border-t border-[#EEE]"></div>
+      </div>
+
+      <!-- Email Sign Up Form -->
+      <form onsubmit="handleEmailAuth(event)" class="space-y-3">
+        <div>
+          <input type="email" id="auth-email" required placeholder="Enter your email" class="w-full text-xs px-3 py-2.5 rounded-lg border border-[#DDD] focus:border-[#B57288] focus:outline-none">
+        </div>
+
+        <!-- Mandatory Cookie & Terms Consent -->
+        <div class="flex items-start gap-2 text-[10px] text-[#666]">
+          <input type="checkbox" id="auth-cookie-consent" required class="mt-0.5 accent-[#B57288]">
+          <label for="auth-cookie-consent" id="lbl-cookie-consent">
+            I accept cookies and agree to store preferences for sales tracking & discount updates.
+          </label>
+        </div>
+
+        <button type="submit" class="w-full bg-[#B57288] hover:bg-[#9A5B70] text-white text-xs font-semibold py-2.5 rounded-full transition-colors uppercase tracking-wider" id="btn-submit-auth">
+          Sign In / Sign Up
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="fixed bottom-4 right-4 z-50 bg-[#2C2C2C] text-white text-xs px-4 py-2.5 rounded-lg shadow-xl flex items-center gap-2 transform translate-y-20 opacity-0 transition-all duration-300">
+    <i class="fa-solid fa-circle-check text-[#E8A5B8]"></i>
+    <span id="toast-msg">Notification</span>
+  </div>
+
+  <!-- External JavaScript -->
+  <script src="app.js"></script>
+</body>
+</html>
